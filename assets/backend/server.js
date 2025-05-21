@@ -22,5 +22,17 @@ app.post('/triagens', async (req, res) => {
   });
   res.json(triagem);
 });
-
+app.put('/triagens/:id', async (req, res) => {
+  const { id } = req.params;
+  const { nome, sintomas, urgencia } = req.body;
+  const triagem = await prisma.triagem.update({
+    where: { id: Number(id) },
+    data: { 
+      nome, 
+      sintomas, 
+      urgencia 
+    },
+  });
+  res.json(triagem);
+});
 app.listen(3000, () => console.log('Servidor rodando na porta 3000'));

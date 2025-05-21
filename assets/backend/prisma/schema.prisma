@@ -10,7 +10,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mongoDB"
+  provider = "Smartclinica"
   url      = env("DATABASE_URL")
 }
 
