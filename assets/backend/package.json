@@ -1,0 +1,28 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/dialogflow": "^7.0.1",
+    "@prisma/client": "^6.8.2",
+    "axios": "^1.9.0",
+    "dialogflow-fulfillment": "^0.5.0",
+    "express": "^5.1.0",
+    "firebase-functions": "^6.3.2",
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.15.0",
+    "natural": "^8.0.1"
+  },
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "prisma": "^6.8.2"
+  }
+}
