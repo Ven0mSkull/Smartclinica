@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { gsap } from 'gsap';
-import robotImage from './assets/images/robot-ia.png'; // Ajuste o caminho conforme necessário
+import robotImage from './assets/images/seilaa.png'; // Ajuste o caminho conforme necessário
 
 function App() {
   useEffect(() => {
@@ -27,8 +27,8 @@ function App() {
     );
     gsap.fromTo(
       '.hero-image',
-      { opacity: 0, x: 100 },
-      { opacity: 1, x: 0, duration: 1.5, ease: 'power3.out', delay: 0.5 }
+      { opacity: 0, x: 200, scale: 0.8, rotation: 10 },
+      { opacity: 1, x: 0, scale: 1, rotation: -2, duration: 1.5, ease: 'elastic.out(1, 0.3)', delay: 0.5 }
     );
   }, []);
 
@@ -64,8 +64,8 @@ function App() {
         <img
           src={robotImage}
           alt="Robô IA"
-          className="hero-image absolute right-0 top 1/4 w-1/4 md:top-1/3 md:w-1/3 opacity-90 shadow-lg transition-transform duration-500 ease-in-out width-300 px-4"
-          style={{ transform: 'rotate(-10deg)' }}
+          className="hero-image absolute right-0 top-1/2 w-4/4 md:top-1/3 md:w-2/3 opacity-90 shadow-lg transition-transform duration-500 ease-in-out "
+          style={{ transform: 'rotate(-2deg)' }}
         />
       </section>
 
