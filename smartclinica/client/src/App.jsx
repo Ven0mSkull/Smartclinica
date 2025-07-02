@@ -1,95 +1,82 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { gsap } from 'gsap';
-import robotImage from './assets/images/seilaa.png'; // Ajuste o caminho conforme necessário
+import { motion } from 'framer-motion';
+import robotImage from './assets/images/seilaa.png'; 
 
 function App() {
-  useEffect(() => {
-    gsap.fromTo(
-      '.hero-title',
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1.5, ease: 'power3.out' }
-    );
-    gsap.fromTo(
-      '.hero-subtitle',
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 1.5, ease: 'power3.out', delay: 0.3 }
-    );
-    gsap.fromTo(
-      '.hero-button',
-      { scale: 0.8, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 0.5, ease: 'bounce', delay: 0.6 }
-    );
-    gsap.fromTo(
-      '.feature-card',
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: 'power2.out', delay: 0.8 }
-    );
-    gsap.fromTo(
-      '.hero-image',
-      { opacity: 0, x: 200, scale: 0.8, rotation: 10 },
-      { opacity: 1, x: 0, scale: 1, rotation: -2, duration: 1.5, ease: 'elastic.out(1, 0.3)', delay: 0.5 }
-    );
-  }, []);
-
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-100 to-white flex flex-col">
       {/* Navbar */}
-      <nav className="bg-blue-700 text-white p-4 fixed w-full top-0 z-10 shadow-lg">
-        <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold">SmartClínica</h1>
-          <ul className="flex space-x-6">
-            <li><a href="#" className="hover:text-blue-200 transition">Home</a></li>
-            <li><a href="#" className="hover:text-blue-200 transition">Sobre</a></li>
-            <li><a href="#" className="hover:text-blue-200 transition">Contato</a></li>
+     <nav className="bg-cyan-700/500 backdrop-blur shadow-md fixed w-full top-0 z-20">
+        <div className="container mx-auto flex justify-between items-center px-6 py-3">
+       <span className="text-3xl font-extrabold text-cyan-700 tracking-tight drop-shadow-sm">
+            SmartClínica
+          </span>
+          <ul className="flex space-x-8 font-medium text-cyan-700">
+            <li><a href="#" className="hover:text-cyan-500 transition">Home</a></li>
+            <li><a href="#" className="hover:text-cyan-500 transition">Sobre</a></li>
+            <li><a href="#" className="hover:text-cyan-500 transition">Contato</a></li>
           </ul>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="h-screen flex items-center justify-center bg-gradient-to-br from-blue-200 to-white relative">
-        <div className="text-center text-white bg-black bg-opacity-50 p-8 rounded-lg">
-          <h1 className="hero-title text-5xl md:text-6xl font-bold mb-4">
-            SmartClínica: IA para a Saúde
+      <section className="h-screen flex items-center justify-center relative overflow-hidden pt-32 pb-8">
+        <div className="text-center text-cyan-900 bg-white/80 shadow-xl p-10 rounded-2xl z-10 relative max-w-2xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
+            SmartClínica: <span className="text-cyan-600">IA para a Saúde</span>
           </h1>
-          <p className="hero-subtitle text-lg md:text-xl max-w-2xl mx-auto mb-6">
+          <p className="text-lg md:text-xl mb-8">
             Um assistente médico virtual que capacita clínicas comunitárias com tecnologia de inteligência artificial.
           </p>
-          <button className="hero-button bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition transform hover:scale-105">
+          <button className="bg-cyan-600 hover:bg-cyan-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition-all duration-200 text-lg">
             Descubra Agora
           </button>
         </div>
 
-        {/* Imagem do robô inclinada à esquerda */}
-        <img
+        
+
+        {/* Imagem do robô IA animada com efeito de bounce */}
+        <motion.img
           src={robotImage}
           alt="Robô IA"
-          className="hero-image absolute right-0 top-1/2 w-4/4 md:top-1/3 md:w-2/3 opacity-90 shadow-lg transition-transform duration-500 ease-in-out "
-          style={{ transform: 'rotate(-2deg)' }}
+          className="IA-image absolute top-12 h-full object-contain md:w-2/2"
+          style={{ maxHeight: '100%', maxWidth: '100%', right: '-500px' }}
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: [0.8, 1.05, 1], opacity: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut", times: [0, 0.7, 1] }}
         />
       </section>
 
       {/* Features Section */}
-      <section className="container mx-auto py-16">
-        <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">
+      <section className="container mx-auto py-20 px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-cyan-800 mb-14">
           Por que escolher a SmartClínica?
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="feature-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-            <h3 className="text-xl font-semibold text-blue-600 mb-2">Bot Médico</h3>
-            <p className="text-gray-600">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="feature-card bg-white/90 p-8 rounded-2xl shadow-xl flex flex-col items-center hover:scale-105 transition">
+            <div className="bg-cyan-100 text-cyan-600 rounded-full p-4 mb-4 text-3xl shadow">
+              <span role="img" aria-label="Bot">🤖</span>
+            </div>
+            <h3 className="text-xl font-semibold text-cyan-700 mb-2">Bot Médico</h3>
+            <p className="text-gray-600 text-center">
               Assistente virtual com IA para orientar pacientes e profissionais em tempo real.
             </p>
           </div>
-          <div className="feature-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-            <h3 className="text-xl font-semibold text-blue-600 mb-2">Acesso Comunitário</h3>
-            <p className="text-gray-600">
+          <div className="feature-card bg-white/90 p-8 rounded-2xl shadow-xl flex flex-col items-center hover:scale-105 transition">
+            <div className="bg-cyan-100 text-cyan-600 rounded-full p-4 mb-4 text-3xl shadow">
+              <span role="img" aria-label="Comunidade">👥</span>
+            </div>
+            <h3 className="text-xl font-semibold text-cyan-700 mb-2">Acesso Comunitário</h3>
+            <p className="text-gray-600 text-center">
               Ferramentas para clínicas comunitárias, promovendo saúde acessível a todos.
             </p>
           </div>
-          <div className="feature-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-            <h3 className="text-xl font-semibold text-blue-600 mb-2">Tecnologia Avançada</h3>
-            <p className="text-gray-600">
+          <div className="feature-card bg-white/90 p-8 rounded-2xl shadow-xl flex flex-col items-center hover:scale-105 transition">
+            <div className="bg-cyan-100 text-cyan-600 rounded-full p-4 mb-4 text-3xl shadow">
+              <span role="img" aria-label="Tecnologia">🧬</span>
+            </div>
+            <h3 className="text-xl font-semibold text-cyan-700 mb-2">Tecnologia Avançada</h3>
+            <p className="text-gray-600 text-center">
               Integração com IA para diagnósticos precisos e gestão eficiente.
             </p>
           </div>
@@ -97,9 +84,9 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-blue-800 text-white p-6 text-center">
+      <footer className="bg-cyan-100 text-cyan-600 p-6 text-center px-4 mt-auto">
         <p>© 2025 SmartClínica. Todos os direitos reservados.</p>
-        <p className="mt-2">Contato: contato@smartclinica.com</p>
+        <p className="mt-2">Contato: <a href="mailto:contato@smartclinica.com" className="underline hover:text-cyan-200">contato@smartclinica.com</a></p>
       </footer>
     </div>
   );
