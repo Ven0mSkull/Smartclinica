@@ -5,7 +5,7 @@ import robotImage from './assets/images/seilaa.png';
 function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-100 to-white flex flex-col">
-      {/* Navbar */}
+      {/* Menu */}
      <nav className="bg-cyan-700/500 backdrop-blur shadow-md fixed w-full top-0 z-20">
         <div className="container mx-auto flex justify-between items-center px-6 py-3">
        <span className="text-3xl font-extrabold text-cyan-700 tracking-tight drop-shadow-sm">
@@ -19,7 +19,9 @@ function App() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+
+
+      {/*Porque escolhe a smartclinica*/}
       <section className="h-screen flex items-center justify-center relative overflow-hidden pt-32 pb-8">
         <div className="text-center text-cyan-900 bg-white/80 shadow-xl p-10 rounded-2xl z-10 relative max-w-2xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
@@ -75,9 +77,9 @@ function App() {
             <div className="bg-cyan-100 text-cyan-600 rounded-full p-4 mb-4 text-3xl shadow">
               <span role="img" aria-label="Tecnologia">🧬</span>
             </div>
-            <h3 className="text-xl font-semibold text-cyan-700 mb-2">Tecnologia Avançada</h3>
+            <h3 className="text-xl font-semibold text-cyan-700 mb-2">Chat bot</h3>
             <p className="text-gray-600 text-center">
-              Integração com IA para diagnósticos precisos e gestão eficiente.
+              Integração com IA para diagnósticos, sistema de tickets precisos e gestão eficiente de médicos.
             </p>
           </div>
         </div>
@@ -86,7 +88,7 @@ function App() {
       {/* Footer */}
       <footer className="bg-cyan-100 text-cyan-600 p-6 text-center px-4 mt-auto">
         <p>© 2025 SmartClínica. Todos os direitos reservados.</p>
-        <p className="mt-2">Contato: <a href="mailto:contato@smartclinica.com" className="underline hover:text-cyan-200">contato@smartclinica.com</a></p>
+        <p className="mt-2">Contato: <a href="mailto:contato@smartclinica.com" className="underline hover:text-black-200">contato@smartclinica.com</a></p>
       </footer>
     </div>
   );
