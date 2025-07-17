@@ -37,7 +37,7 @@ function App() {
 
         
 
-        {/* Imagem do robô IA animada com efeito de bounce */}
+        {/* Imagem do robô IA animada */}
         <motion.img
           src={robotImage}
           alt="Robô IA"
